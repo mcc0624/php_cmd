@@ -740,7 +740,7 @@ input::-webkit-input-placeholder {
         <div class="menu" id="menu">
             <ul class="scrollcontent">
                 <!--左侧目录，按照需要修改和添加，参考已有的修改名称和href-->
-                <li><a href="#row-1">0x03 类与对象</a></li>
+                <li><a href="#row-1">0x01 命令执行危险函数</a></li>
                 <li><a href="#row-2">0x04 序列化基础知识</a></li>
                 <li><a href="#row-3">0x05 反序列化知识</a></li>
                 <li><a href="#row-4">0x06 反序列化漏洞</a></li>
@@ -790,32 +790,38 @@ input::-webkit-input-placeholder {
             <div class="container-fluid">
                 <div class="row">
                     <div class="item-tit">
-                        <strong>0x03 类与对象</strong>
+                        <strong>0x01 常见命令执行危险函数</strong>
                     </div>
                     <!--获取内容列表-->
                     <div class="clearfix two-list-box">
                         <div class="col-md-3 col-sm-4 col-xs-6">
-                            <a href="./class03/1.php" class="card-link" target="_blank">
-                            <div class="card-tit">类的演示</div>
-                            <div class="card-desc">类：定义类名、定义成员变量（属性）、定义成员函数（方法）</div>
+                            <a href="./class01/system.php" class="card-link" target="_blank">
+                            <div class="card-tit">system()函数</div>
+                            <div class="card-desc">system — 执行外部程序，并且显示输出</div>
                             </a>
                         </div>
                         <div class="col-md-3 col-sm-4 col-xs-6">
-                            <a href="./class03/2.php" class="card-link" target="_blank">
-                            <div class="card-tit">实例化和赋值</div>
-                            <div class="card-desc">实例化和赋值，演示代码！</div>
+                            <a href="./class01/exec.php" class="card-link" target="_blank">
+                            <div class="card-tit">exec()函数</div>
+                            <div class="card-desc">exec — 执行一个外部程序</div>
                             </a>
                         </div>
                         <div class="col-md-3 col-sm-4 col-xs-6">
-                            <a href="./class03/3.php" class="card-link" target="_blank">
-                            <div class="card-tit">权限修饰符</div>
-                            <div class="card-desc">PHP访问权限修饰符有三种：1、Public，2、Protected，3、private</div>
+                            <a href="./class01/passthru.php" class="card-link" target="_blank">
+                            <div class="card-tit">passthru()函数</div>
+                            <div class="card-desc">passthru — 执行外部程序并且显示原始输出</div>
                             </a>
                         </div>
                         <div class="col-md-3 col-sm-4 col-xs-6">
-                            <a href="./class03/4.php" class="card-link" target="_blank">
-                            <div class="card-tit">权限修饰符2</div>
-                            <div class="card-desc">protected，表示受保护的、继承的，只能类本身和类的内部成员可以访问</div>
+                            <a href="./class01/shell_exec.php" class="card-link" target="_blank">
+                            <div class="card-tit">shell_exec()函数</div>
+                            <div class="card-desc">shell_exec — 通过 shell 环境执行命令，并且将完整的输出以字符串的方式返回。</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="./class01/pcexec.php" class="card-link" target="_blank">
+                                <div class="card-tit">pcntl_exec()函数</div>
+                                <div class="card-desc">passthru()函数调用系统命令，把运行结果二进制数据原样地直接输出到标准输出设备上。</div>
                             </a>
                         </div>
                     </div>
