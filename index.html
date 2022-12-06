@@ -741,8 +741,8 @@ input::-webkit-input-placeholder {
             <ul class="scrollcontent">
                 <!--左侧目录，按照需要修改和添加，参考已有的修改名称和href-->
                 <li><a href="#row-1">0x01 命令执行危险函数</a></li>
-                <li><a href="#row-2">0x04 序列化基础知识</a></li>
-                <li><a href="#row-3">0x05 反序列化知识</a></li>
+                <li><a href="#row-2">0x02 命令连接符</a></li>
+                <li><a href="#row-3">0x03 空格过滤绕过</a></li>
                 <li><a href="#row-4">0x06 反序列化漏洞</a></li>
                 <li><a href="#row-5">0x07 魔术方法介绍</a></li>
                 <li><a href="#row-6">0x08 weakup和sleep</a></li>
@@ -836,6 +836,12 @@ input::-webkit-input-placeholder {
                                 <div class="card-desc">PHP 将尝试将反引号中的内容作为 shell 命令来执行，并将其输出信息返回</div>
                             </a>
                         </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="./class01/pcntl.php" class="card-link" target="_blank">
+                                <div class="card-tit">pcntl_exec</div>
+                                <div class="card-desc">pcntl是linux下的一个扩展，需要额外安装，可以支持 php 的多线程操作。</div>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -845,60 +851,60 @@ input::-webkit-input-placeholder {
             <div class="container-fluid">
                 <div class="row">
                     <div class="item-tit">
-                        <strong>0x04 序列化基础知识</strong>
+                        <strong>0x02 过滤命令执行函数</strong>
                     </div>
                     <!--获取内容列表-->
                     <div class="clearfix ">
                         <div class="col-md-3 col-sm-4 col-xs-6">
-                            <a href="./class04/1.php" class="card-link" target="_blank">
-                            <div class="card-tit">序列化演示</div>
-                            <div class="card-desc">不通数据类型序列化之后对的格式展示</div>
+                            <a href="./class02/1.php" class="card-link" target="_blank">
+                            <div class="card-tit">替换练习</div>
+                            <div class="card-desc">仅仅过滤常见函数的一个多多个，使用替换其他函数执行命令</div>
                             </a>
                         </div>
                         <div class="col-md-3 col-sm-4 col-xs-6">
-                            <a href="./class04/2.php" class="card-link" target="_blank">
-                            <div class="card-tit">数组序列化</div>
-                            <div class="card-desc">学的不仅是技术，更是梦想！该站提供了很全的编程技术基础教程，适合入门学习</div>
-                            </a>
-                        </div>
-                        <div class="col-md-3 col-sm-4 col-xs-6">
-                            <a href="./class04/3.php" class="card-link" target="_blank">
-                            <div class="card-tit">对象序列化</div>
-                            <div class="card-desc">提供了对象序列化示例</div>
-                            </a>
-                        </div>
-                        <div class="col-md-3 col-sm-4 col-xs-6">
-                            <a href="./class04/4.php" class="card-link" target="_blank">
-                            <div class="card-tit">私有修饰符</div>
-                            <div class="card-desc">私有属性在序列化之后的格式</div>
-                            </a>
-                        </div>
-                        <div class="col-md-3 col-sm-4 col-xs-6">
-                            <a href="./class04/5.php" class="card-link" target="_blank">
-                            <div class="card-tit">保护修饰符</div>
-                            <div class="card-desc">保护属性修饰符在序列化之后的格式</div>
-                            </a>
-                        </div>
-                        <div class="col-md-3 col-sm-4 col-xs-6">
-                            <a href="./class04/6.php" class="card-link" target="_blank">
-                            <div class="card-tit">成员属性调用对象</div>
-                            <div class="card-desc">演示成员属性调用对象过程，及序列化之后格式解释</div>
+                            <a href="./class02/2.php" class="card-link" target="_blank">
+                                <div class="card-tit">ld_preload</div>
+                                <div class="card-desc">仅仅过滤常见函数的一个多多个，使用替换其他函数执行命令</div>
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
             </section>
+            <section class="item card-box" id="row-2">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="item-tit">
+                            <strong>0x03 命令连接符</strong>
+                        </div>
+                        <!--获取内容列表-->
+                        <div class="clearfix ">
+                            <div class="col-md-3 col-sm-4 col-xs-6">
+                                <a href="./class03/1.php" class="card-link" target="_blank">
+                                    <div class="card-tit">链接演示1</div>
+                                    <div class="card-desc">命令拼接演示代码</div>
+                                </a>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6">
+                                <a href="./class03/2.php" class="card-link" target="_blank">
+                                    <div class="card-tit">||拼接</div>
+                                    <div class="card-desc">命令拼接演示代码</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
             <section class="item card-box" id="row-3">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="item-tit">
-                            <strong>0x05 反序列化知识</strong>
+                            <strong>0x03 空格过滤绕过</strong>
                         </div>
                         <!--获取内容列表-->
                         <div class="clearfix two-list-box">
                             <div class="col-md-3 col-sm-4 col-xs-6">
-                                <a href="./class05/1.php" class="card-link" target="_blank">
+                                <a href="./class02/1.php" class="card-link" target="_blank">
                                     <div class="card-tit">反序列化</div>
                                     <div class="card-desc">反序列化之后的内容为一个对象</div>
                                 </a>

