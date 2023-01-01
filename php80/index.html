@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <!--title keywords description 请改为自己的-->
-<title>重庆橙子科技php反序列化靶场</title>
+<title>重庆橙子科技php5命令执行靶场</title>
 <meta name="keywords" content="PHP反序列化漏洞学习"/>
 <!--<meta name="description" content="简单但实用的导航"/>-->
 
@@ -740,7 +740,17 @@ input::-webkit-input-placeholder {
         <div class="menu" id="menu">
             <ul class="scrollcontent">
                 <!--左侧目录，按照需要修改和添加，参考已有的修改名称和href-->
-                <li><a href="#row-2">0x10 无字符数字</a></li>
+                <li><a href="#row-1">0x01 命令执行危险函数</a></li>
+                <li><a href="#row-2">0x02 过滤函数</a></li>
+                <li><a href="#row-3">0x03 系统连接符</a></li>
+                <li><a href="#row-4">0x04 空格过滤</a></li>
+                <li><a href="#row-5">0x05 文件名过滤</a></li>
+                <li><a href="#row-6">0x06 读取命令过滤</a></li>
+                <li><a href="#row-7">0x07 编码绕过</a></li>
+                <li><a href="#row-8">0x08 命令盲注</a></li>
+                <li><a href="#row-9">0x09 长度过滤</a></li>
+                <li><a href="#row-10">0x10 无参数命令执行</a></li>
+                <li><a href="#row-11">0x11 无字母数字过滤</a></li>
             </ul>
         </div>
     </div>
@@ -766,25 +776,311 @@ input::-webkit-input-placeholder {
 <!--            </div>-->
 <!--            </section>-->
             <!--导航分类范例1，请根据自己的需求进行修改-->
-			<!--范例二 导航内容参考修改，如果需要更多的分类，拷贝整个section标签进行修改-->
-            <section class="item card-box" id="row-2">
+            <section class="item card-box" id="row-1">
             <div class="container-fluid">
                 <div class="row">
                     <div class="item-tit">
-                        <strong>0x02 无字母数字过滤</strong>
+                        <strong>0x01 常见命令执行危险函数</strong>
                     </div>
                     <!--获取内容列表-->
-                    <div class="clearfix ">
+                    <div class="clearfix two-list-box">
                         <div class="col-md-3 col-sm-4 col-xs-6">
-                            <a href="./class10/1.php" class="card-link" target="_blank">
-                            <div class="card-tit">无字母数字过滤</div>
-                            <div class="card-desc">php7.0版本绕过无字母数字过滤</div>
+                            <a href="./class01/system.php" class="card-link" target="_blank">
+                            <div class="card-tit">system()函数</div>
+                            <div class="card-desc">system — 执行外部程序，并且显示输出</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="./class01/exec.php" class="card-link" target="_blank">
+                            <div class="card-tit">exec()函数</div>
+                            <div class="card-desc">exec — 执行一个外部程序</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="./class01/passthru.php" class="card-link" target="_blank">
+                            <div class="card-tit">passthru()函数</div>
+                            <div class="card-desc">passthru — 执行外部程序并且显示原始输出</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="./class01/shell_exec.php" class="card-link" target="_blank">
+                            <div class="card-tit">shell_exec()函数</div>
+                            <div class="card-desc">shell_exec — 通过 shell 环境执行命令，并且将完整的输出以字符串的方式返回。</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="./class01/popen.php" class="card-link" target="_blank">
+                                <div class="card-tit">popen()函数</div>
+                                <div class="card-desc">popen()函数调用系统命令。</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="./class01/proc_open.php" class="card-link" target="_blank">
+                                <div class="card-tit">proc_open()函数</div>
+                                <div class="card-desc">proc_open — 执行一个命令，并且打开用来输入/输出的文件指针。</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="./class01/quote.php" class="card-link" target="_blank">
+                                <div class="card-tit">反引号（``）</div>
+                                <div class="card-desc">PHP 将尝试将反引号中的内容作为 shell 命令来执行，并将其输出信息返回</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="./class01/pcntl.php" class="card-link" target="_blank">
+                                <div class="card-tit">pcntl_exec</div>
+                                <div class="card-desc">pcntl是linux下的一个扩展，需要额外安装，可以支持 php 的多线程操作。</div>
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
             </section>
+			<!--范例二 导航内容参考修改，如果需要更多的分类，拷贝整个section标签进行修改-->
+            <section class="item card-box" id="row-2">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="item-tit">
+                        <strong>0x02 过滤命令执行函数</strong>
+                    </div>
+                    <!--获取内容列表-->
+                    <div class="clearfix ">
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="./class02/1.php" class="card-link" target="_blank">
+                            <div class="card-tit">替换练习</div>
+                            <div class="card-desc">仅仅过滤常见函数的一个多多个，使用替换其他函数执行命令</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </section>
+            <section class="item card-box" id="row-3">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="item-tit">
+                            <strong>0x03 命令连接符</strong>
+                        </div>
+                        <!--获取内容列表-->
+                        <div class="clearfix ">
+                            <div class="col-md-3 col-sm-4 col-xs-6">
+                                <a href="./class03/1.php" class="card-link" target="_blank">
+                                    <div class="card-tit">链接演示1</div>
+                                    <div class="card-desc">命令拼接演示代码</div>
+                                </a>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6">
+                                <a href="./class03/2.php" class="card-link" target="_blank">
+                                    <div class="card-tit">||拼接</div>
+                                    <div class="card-desc">命令拼接演示代码</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="item card-box" id="row-4">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="item-tit">
+                            <strong>0x04 过滤空格</strong>
+                        </div>
+                        <!--获取内容列表-->
+                        <div class="clearfix two-list-box">
+                            <div class="col-md-3 col-sm-4 col-xs-6">
+                                <a href="./class04/1.php" class="card-link" target="_blank">
+                                    <div class="card-tit">空格过滤</div>
+                                    <div class="card-desc">空格或换行符过滤绕过练习</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="item card-box" id="row-5">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="item-tit">
+                            <strong>0x05 文件名过滤</strong>
+                        </div>
+                        <!--获取内容列表-->
+                        <div class="clearfix two-list-box">
+                            <div class="col-md-3 col-sm-4 col-xs-6">
+                                <a href="./class05/1.php" class="card-link" target="_blank">
+                                    <div class="card-tit">文件名过滤绕过</div>
+                                    <div class="card-desc">用以演示文件名过滤绕过手法</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="item card-box" id="row-6">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="item-tit">
+                            <strong>0x06 文件读取命令过滤</strong>
+                        </div>
+                        <!--获取内容列表-->
+                        <div class="clearfix two-list-box">
+                            <div class="col-md-3 col-sm-4 col-xs-6">
+                                <a href="./class06/1.php" class="card-link" target="_blank">
+                                    <div class="card-tit">读取过滤</div>
+                                    <div class="card-desc">一个简单的文件读取函数过滤演示</div>
+                                </a>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6">
+                                <a href="./class06/2.php" class="card-link" target="_blank">
+                                    <div class="card-tit">grep方法绕过</div>
+                                    <div class="card-desc">这次过滤的特别看看能使用grep方法</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="item card-box" id="row-7">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="item-tit">
+                            <strong>0x07 编码绕过介绍</strong>
+                        </div>
+                        <!--获取内容列表-->
+                        <div class="clearfix two-list-box">
+                            <div class="col-md-3 col-sm-4 col-xs-6">
+                                <a href="./class07/1.php" class="card-link" target="_blank">
+                                    <div class="card-tit">编码绕过练习</div>
+                                    <div class="card-desc">base编码，hex编码，shellcode编码，rot13</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="item card-box" id="row-8">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="item-tit">
+                            <strong>0x08 命令盲注</strong>
+                        </div>
+                        <!--获取内容列表-->
+                        <div class="clearfix two-list-box">
+                            <div class="col-md-3 col-sm-4 col-xs-6">
+                                <a href="./class08/1.php" class="card-link" target="_blank">
+                                    <div class="card-tit">盲注练习靶场</div>
+                                    <div class="card-desc">使用盲注获取flag信息</div>
+                                </a>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6">
+                                <a href="./class08/poc.py" class="card-link" target="_blank">
+                                    <div class="card-tit">POC脚本下载</div>
+                                    <div class="card-desc">时间盲注利用脚本下载</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="item card-box" id="row-9">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="item-tit">
+                            <strong>0x09 长度过滤</strong>
+                        </div>
+                        <!--获取内容列表-->
+                        <div class="clearfix two-list-box">
+                            <div class="col-md-3 col-sm-4 col-xs-6">
+                                <a href="./class09/1/index.php" class="card-link" target="_blank">
+                                    <div class="card-tit">长度限制9</div>
+                                    <div class="card-desc">长度限制到9基本没啥影响</div>
+                                </a>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6">
+                                <a href="./class09/2/index.php" class="card-link" target="_blank">
+                                    <div class="card-tit">长度限制7</div>
+                                    <div class="card-desc">对于长度为7的限制进行绕过</div>
+                                </a>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6">
+                                <a href="./class09/3/index.php" class="card-link" target="_blank">
+                                    <div class="card-tit">长度限制5</div>
+                                    <div class="card-desc">调用的成员属性不存在</div>
+                                </a>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6">
+                                <a href="./class09/4/ffff.php" class="card-link" target="_blank">
+                                    <div class="card-tit">长度限制4</div>
+                                    <div class="card-desc">给不存在的成员属性赋值</div>
+                                </a>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6">
+                                <a href="./class09/poc.rar" class="card-link" target="_blank">
+                                    <div class="card-tit">poc脚本下载</div>
+                                    <div class="card-desc">4、5、7长度python脚本</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="item card-box" id="row-10">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="item-tit">
+                            <strong>0x10 无参数命令执行</strong>
+                        </div>
+                        <!--获取内容列表-->
+                        <div class="clearfix two-list-box">
+                            <div class="col-md-3 col-sm-4 col-xs-6">
+                                <a href="./class10/1.php" class="card-link" target="_blank">
+                                    <div class="card-tit">无参数命令执行环境</div>
+                                    <div class="card-desc">此环境为无参数命令执行演示</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="item card-box" id="row-11">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="item-tit">
+                            <strong>0x11 无字母数字</strong>
+                        </div>
+                        <!--获取内容列表-->
+                        <div class="clearfix two-list-box">
+                            <div class="col-md-3 col-sm-4 col-xs-6">
+                                <a href="./class11/1.php" class="card-link" target="_blank">
+                                    <div class="card-tit">无字母数字靶场</div>
+                                    <div class="card-desc">php5环境下无字母数字过滤</div>
+                                </a>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6">
+                                <a href="./class11/xor.php" class="card-link" target="_blank">
+                                    <div class="card-tit">异或运算POC生成脚本</div>
+                                    <div class="card-desc">用来生成异或运算命令执行脚本</div>
+                                </a>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6">
+                                <a href="./class11/neg.php" class="card-link" target="_blank">
+                                    <div class="card-tit">取反POC生成脚本</div>
+                                    <div class="card-desc">用来生成取反运算命令执行脚本</div>
+                                </a>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6">
+                                <a href="./class11/plus.php" class="card-link" target="_blank">
+                                    <div class="card-tit">自增POC生成脚本</div>
+                                    <div class="card-desc">用来生成自增命令执行脚本</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!--页脚-->
             <footer class="footer">
             <div class="container">

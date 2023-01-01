@@ -1,0 +1,6 @@
+<?php
+highlight_file(__FILE__);
+error_reporting(0);
+if(!preg_match('/[a-z0-9]/is',$_GET['cmd'])) {
+    eval($_GET['cmd']);
+}
