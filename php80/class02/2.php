@@ -1,4 +1,5 @@
 <?php
+header("content-type:text/html;charset=utf-8");
 highlight_file(__FILE__);
 error_reporting(0);
 if(isset($_POST['cmd'])){
